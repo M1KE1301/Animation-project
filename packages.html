@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <!-- <link rel="stylesheet" href="./css/style.css" /> -->
+    <link rel="stylesheet" href="../css/package.css" />
+    <title>Our Packages</title>
+  </head>
+  <body>
+    <div id="headerContainer"></div>
+    <section class="package">
+      <h1>Our Packages</h1>
+      <div class="cards">
+        <article class="card card--1">
+          <div class="card__img"></div>
+          <a href="#" class="card_link">
+            <div class="card__img--hover"></div>
+          </a>
+          <div class="card__info">
+            <span class="card__category"> Travel</span>
+            <h3 class="card__title">Dubai</h3>
+          </div>
+        </article>
+
+        <article class="card card--2">
+          <div class="card__img"></div>
+          <a href="#" class="card_link">
+            <div class="card__img--hover"></div>
+          </a>
+          <div class="card__info">
+            <span class="card__category"> Travel</span>
+            <h3 class="card__title">New York</h3>
+          </div>
+        </article>
+        <article class="card card--3">
+          <div class="card__img"></div>
+          <a href="#" class="card_link">
+            <div class="card__img--hover"></div>
+          </a>
+          <div class="card__info">
+            <span class="card__category"> Travel</span>
+            <h3 class="card__title">Veitnam</h3>
+          </div>
+        </article>
+      </div>
+    </section>
+    <script>
+      gsap.from("h1", 1.2, { opacity: 0, y: -80, delay: 1.4 });
+      gsap.from(".cards", 1.2, { opacity: 0, y: 80, delay: 1.4 });
+      fetch("../components/header.html")
+        .then((response) => response.text())
+        .then((data) => {
+          const headerContainer = document.getElementById("headerContainer");
+          headerContainer.innerHTML = data;
+
+          const menu = headerContainer.querySelector(".menu"); // Find the element inside the fetched content
+          const toggle = headerContainer.querySelector("#toggle");
+          toggle.onclick = function () {
+            menu.classList.toggle("active");
+          };
+        });
+    </script>
+  </body>
+</html>

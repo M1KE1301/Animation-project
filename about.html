@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <link rel="stylesheet" href="./css/about.css" />
+    <title>About Us</title>
+  </head>
+  <body>
+    <div id="headerContainer"></div>
+    <section class="about">
+      <h1>About Us</h1>
+      <p>
+        Welcome to Travellers.org, where adventure and exploration are more than
+        just words; they're a way of life. At Travellers.org, we believe in the
+        transformative power of travel, and we're dedicated to helping you
+        embark on unforgettable journeys that go beyond the ordinary. Our
+        mission is to inspire, educate, and connect travelers from all walks of
+        life, whether you're a seasoned globetrotter or just getting ready to
+        spread your wings for the first time.
+      </p>
+      <p>
+        As a community of passionate travelers, we're here to provide you with a
+        wealth of resources, from expert travel guides to firsthand accounts of
+        incredible destinations, all tailored to your interests and preferences.
+        Our platform is designed to be your one-stop hub for everything related
+        to travel - from destination recommendations and travel tips to
+        practical advice on packing and cultural etiquette. We're committed to
+        fostering a global community of like-minded explorers, so come join us
+        at Travellers.org, and let's embark on unforgettable journeys together.
+        Your next adventure awaits!
+      </p>
+    </section>
+    <script>
+      gsap.from("h1", 1.2, { opacity: 0, y: -80, delay: 1.4 });
+      gsap.from("p", 1.2, { opacity: 0, y: -80, delay: 1.25 });
+      gsap.from("button", 1.2, { opacity: 0, y: -80, delay: 1 });
+      fetch("../components/header.html")
+        .then((response) => response.text())
+        .then((data) => {
+          const headerContainer = document.getElementById("headerContainer");
+          headerContainer.innerHTML = data;
+
+          const menu = headerContainer.querySelector(".menu"); // Find the element inside the fetched content
+          const toggle = headerContainer.querySelector("#toggle");
+          toggle.onclick = function () {
+            menu.classList.toggle("active");
+          };
+        });
+    </script>
+  </body>
+</html>
